@@ -70,6 +70,7 @@
                         servico.show = !servico.hide;
                         if (servico.show) {
                             servicosHabilitados.push(servico);
+                            alert(servico.id);
                         }
                     }
                     ctrl.paginator = new Paginator(servicosHabilitados, ctrl.interface.pageSize);
