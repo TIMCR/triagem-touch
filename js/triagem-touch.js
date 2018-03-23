@@ -38,7 +38,7 @@
                     headers: {
                         'Content-Type': 'application/x-www-form-urlencoded',
                         'Authorization': 'Bearer ' + OAuth2.accessToken,
-                    }
+                    },
                     url: ctrl.url + '/api/unidades' 
                 }).success(function(data) {
                     ctrl.unidades = data;
@@ -53,7 +53,8 @@
                     headers: {
                         'Content-Type': 'application/x-www-form-urlencoded',
                         'Authorization': 'Bearer ' + OAuth2.accessToken,
-                    } url: ctrl.url + '/api/servicos/' + ctrl.unidade 
+                    },
+                    url: ctrl.url + '/api/servicos/' + ctrl.unidade 
                 }).success(function(data) {
                     ctrl.servicos = data;
                     var servicosHabilitados = [];
@@ -83,7 +84,8 @@
                     headers: {
                         'Content-Type': 'application/x-www-form-urlencoded',
                         'Authorization': 'Bearer ' + OAuth2.accessToken,
-                    } url: ctrl.url + '/api/prioridades' 
+                    },
+                    url: ctrl.url + '/api/prioridades' 
                 }).success(function(data) {
                     ctrl.prioridades = data;
                 });
