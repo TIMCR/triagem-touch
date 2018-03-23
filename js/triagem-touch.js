@@ -33,8 +33,14 @@
         ctrl.loadUnidades = function() {
             ctrl.unidades = [];
             if (ctrl.url) {
-                $http({ method: 'GET', url: ctrl.url + '/api/unidades' }).
-                success(function(data) {
+                $http({
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded',
+                        'Authorization': 'Bearer ' + OAuth2.accessToken,
+                    }
+                    url: ctrl.url + '/api/unidades' 
+                }).success(function(data) {
                     ctrl.unidades = data;
                 });
             }
@@ -42,8 +48,13 @@
 
         ctrl.loadServicos = function() {
             if (ctrl.url && ctrl.unidade > 0) {
-                $http({ method: 'GET', url: ctrl.url + '/api/servicos/' + ctrl.unidade }).
-                success(function(data) {
+                $http({
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded',
+                        'Authorization': 'Bearer ' + OAuth2.accessToken,
+                    } url: ctrl.url + '/api/servicos/' + ctrl.unidade 
+                }).success(function(data) {
                     ctrl.servicos = data;
                     var servicosHabilitados = [];
                     var desabilitados = JSON.parse(Storage.get('desabilitados') || '[]');
@@ -67,8 +78,13 @@
 
         ctrl.loadPrioridades = function() {
             if (ctrl.url) {
-                $http({ method: 'GET', url: ctrl.url + '/api/prioridades' }).
-                success(function(data) {
+                $http({
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded',
+                        'Authorization': 'Bearer ' + OAuth2.accessToken,
+                    } url: ctrl.url + '/api/prioridades' 
+                }).success(function(data) {
                     ctrl.prioridades = data;
                 });
             }
