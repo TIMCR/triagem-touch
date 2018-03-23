@@ -54,7 +54,7 @@
                         'Content-Type': 'application/x-www-form-urlencoded',
                         'Authorization': 'Bearer ' + OAuth2.accessToken,
                     },
-                    url: ctrl.url + '/api/servicos/' + ctrl.unidade 
+                    url: ctrl.url + '/api/unidades/' + ctrl.unidade + '/servicos' 
                 }).success(function(data) {
                     ctrl.servicos = data;
                     var servicosHabilitados = [];
@@ -70,7 +70,6 @@
                         servico.show = !servico.hide;
                         if (servico.show) {
                             servicosHabilitados.push(servico);
-                            alert(servico.id);
                         }
                     }
                     ctrl.paginator = new Paginator(servicosHabilitados, ctrl.interface.pageSize);
@@ -209,14 +208,13 @@
                     unidade: ctrl.unidade,
                     servico: ctrl.servico,
                     prioridade: prioridade,
-                    nome_cliente: ctrl.cliente.nome,
-                    doc_cliente: ctrl.cliente.documento,
+                    cliente: ctrl.cliente
                 };
 
             $http({
                 method: 'POST',
                 url: url,
-                data: $.param(data),
+                data: JSON.stringify(data),
                 headers: {
                     'Content-Type': 'application/x-www-form-urlencoded',
                     'Authorization': 'Bearer ' + OAuth2.accessToken,
@@ -431,7 +429,7 @@
         
         imprimir: function(atendimento) {
             var iframe = document.getElementById(this.iframeId);
-            iframe.src = Storage.get('url') + '/print/' + atendimento.id + '/' + atendimento.hash;
+            iframe.src = Storage.get('url') + '/api/print/' + atendimento.id + '/' + atendimento.hash;
         }
         
     };

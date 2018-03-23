@@ -8,9 +8,9 @@
 <div id="servicos" class="page first">
     <div ng-class="ctrl.itemStyleClass($index, ctrl.paginator.items())" ng-repeat="servico in ctrl.paginator.items()" ng-hide="servico.hide">
         <div class="touch-control">
-            <button class="btn btn-primary btn-lg btn-block" ng-click="ctrl.tipoAtendimento(servico.id)">
+            <button class="btn btn-primary btn-lg btn-block" ng-click="ctrl.tipoAtendimento(servico.servico.id)">
                 <span class="icon glyphicon glyphicon-circle-arrow-right"></span>
-                {{servico.nome}}
+                {{servico.servico.nome}}
             </button>
         </div>
     </div>
@@ -59,10 +59,10 @@
             <p>Por favor aguarde a impressão da senha</p>
         </div>
         <div class="ticket-body">
-            {{ctrl.atendimento.senha}}
+            {{ctrl.atendimento.senha.format}}
         </div>
         <div class="ticket-footer">
-            {{ctrl.atendimento.servico}}
+            {{ctrl.atendimento.servico.nome}}
         </div>
     </div>
 </div>
