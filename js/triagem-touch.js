@@ -429,7 +429,7 @@
         
         imprimir: function(atendimento) {
             var iframe = document.getElementById(this.iframeId);
-            iframe.src = Storage.get('url') + '/api/print/' + atendimento.id + '/' + atendimento.hash;
+            iframe.src = Storage.get('url') + '/api/print/' + atendimento.id + '?hash=' + atendimento.hash;
         }
         
     };
