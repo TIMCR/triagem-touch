@@ -441,7 +441,7 @@
 		
 		imprimir: function(atendimento, $http) {
 			var iframe = document.getElementById(this.iframeId);
-			iframe.src = Storage.get('url') + '/api/print/' + atendimento.id + '?hash=' + atendimento.hash;
+			// iframe.src = Storage.get('url') + '/api/print/' + atendimento.id + '?hash=' + atendimento.hash;
 			if (OAuth2.isOk) {
 				var url = Storage.get('url') + '/api/print/' + atendimento.id + '?hash=' + atendimento.hash,
 					hedr = {
