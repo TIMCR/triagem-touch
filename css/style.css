@@ -232,3 +232,15 @@ html, body, #layout {
 .ticket .ticket-footer {
     font-size: 2vw;
 }
+
+
+
+#municipio{
+    font-size: 5rem;
+}
+#emissao{
+    font-size: 4rem;
+}
+#window_title, .btn{
+    font-size: 3rem;
+}
