@@ -203,39 +203,43 @@
         };
 
         ctrl.distribuiSenha = function(prioridade) {
-            var url = ctrl.url + '/api/distribui',
-                data = {
-                    unidade: ctrl.unidade,
-                    servico: ctrl.servico,
-                    prioridade: prioridade,
-                    cliente: ctrl.cliente
-                };
+            if (OAuth.isOk) {
+                var url = ctrl.url + '/api/distribui',
+                    data = {
+                        unidade: ctrl.unidade,
+                        servico: ctrl.servico,
+                        prioridade: prioridade,
+                        cliente: ctrl.cliente
+                    };
 
-            $http({
-                method: 'POST',
-                url: url,
-                data: JSON.stringify(data),
-                headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded',
-                    'Authorization': 'Bearer ' + OAuth2.accessToken,
-                }
-            }).then(
-                function (response) {
-                    if (response.data.error) {
-                        showError(response.data.error);
-                    } else {
-                        ctrl.atendimento = response.data;
-
-                        if (ctrl.interface.print) {
-                            Impressao.imprimir(ctrl.atendimento);
-                        }
+                $http({
+                    method: 'POST',
+                    url: url,
+                    data: JSON.stringify(data),
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded',
+                        'Authorization': 'Bearer ' + OAuth2.accessToken,
                     }
-                    ctrl.gotoPage('#printing', 5);
-                }, 
-                function (response) {
-                    showError(response.data.error);
-                }
-            );
+                }).then(
+                    function (response) {
+                        if (response.data.error) {
+                            showError(response.data.error);
+                        } else {
+                            ctrl.atendimento = response.data;
+
+                            if (ctrl.interface.print) {
+                                Impressao.imprimir(ctrl.atendimento);
+                            }
+                        }
+                        ctrl.gotoPage('#printing', 5);
+                    },
+                    function (response) {
+                        showError(response.data.error);
+                    }
+                );
+            }else{
+                alert("Eeepa!! Totem não autorizado para emissão de senhas!");
+            }
         };
 
         ctrl.itemStyleClass = function(index, items) {
@@ -253,6 +257,7 @@
     var OAuth2 = {
 
         debug: false,
+        isOk: false,
         accessToken: '',
         refreshToken: '',
         expireTime: null,
@@ -295,8 +300,10 @@
                 data: data,
                 success: function(response) {
                     if (response.error) {
+                        OAuth2.isOk = false;
                         showError(response.error_description);
                     } else {
+                        OAuth2.isOk = true;
                         OAuth2.accessToken = response.access_token;
                         var now = new Date().getTime() / 1000;
                         OAuth2.expireTime = now + response.expires_in;
@@ -311,7 +318,8 @@
                         Storage.set('expire_time', OAuth2.expireTime);
                     }
                 },
-                error: function(xhr) {
+                error: function (xhr) {
+                    OAuth2.isOk = false;
                     var response = $.parseJSON(xhr.responseText);
                     showError(response.error);
                 }
