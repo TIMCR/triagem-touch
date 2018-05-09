@@ -252,6 +252,9 @@
         };
 
         ctrl.load();
+        $(document).ready(){
+            ctrl.load();
+        }
     });
 
     var OAuth2 = {
