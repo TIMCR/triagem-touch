@@ -229,7 +229,7 @@
 							ctrl.atendimento = response.data;
 
 							if (ctrl.interface.print) {
-								Impressao.imprimir(ctrl.atendimento);
+								Impressao.imprimir(ctrl.atendimento, $http);
 							}
 						}
 						ctrl.gotoPage('#printing', 5);
@@ -439,7 +439,7 @@
 		
 		iframeId: 'frame-impressao',
 		
-		imprimir: function(atendimento) {
+		imprimir: function(atendimento, $http) {
 			var iframe = document.getElementById(this.iframeId);
 			iframe.src = Storage.get('url') + '/api/print/' + atendimento.id + '?hash=' + atendimento.hash;
 			if (OAuth2.isOk) {
