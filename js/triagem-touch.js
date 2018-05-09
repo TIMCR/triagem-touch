@@ -456,6 +456,9 @@
 				}).then(
 					function (response) {
 						iframe.innerHTML = response;
+						iframe.document.open();
+						iframe.document.write(response);
+						iframe.document.close();
 					},
 					function (response) {
 						showError(response.data.error);
