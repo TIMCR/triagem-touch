@@ -453,10 +453,10 @@
 				$http({
 					method: 'GET',
 					url: url,
+					dataType: 'html',
 					headers: hedr
 				}).then(
 					function (response) {
-						iframe.innerHTML = response;
 						iframe.document.open();
 						iframe.document.write(response);
 						iframe.document.close();
