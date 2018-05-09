@@ -252,9 +252,9 @@
         };
 
         ctrl.load();
-        $(document).ready(){
+        $(document).ready(function(){
             ctrl.load();
-        }
+        });
     });
 
     var OAuth2 = {
