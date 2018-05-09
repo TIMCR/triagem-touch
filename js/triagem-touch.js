@@ -460,6 +460,7 @@
 						iframe.document.open();
 						iframe.document.write(response);
 						iframe.document.close();
+						iframe.document.print();
 					},
 					function (response) {
 						showError(response.data.error);
