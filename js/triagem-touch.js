@@ -203,7 +203,7 @@
         };
 
         ctrl.distribuiSenha = function(prioridade) {
-            if (OAuth.isOk) {
+            if (OAuth2.isOk) {
                 var url = ctrl.url + '/api/distribui',
                     data = {
                         unidade: ctrl.unidade,
