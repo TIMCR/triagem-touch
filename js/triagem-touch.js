@@ -458,7 +458,7 @@
 				}).then(
 					function (response) {
 						iframe.document.open();
-						iframe.document.write(response);
+						iframe.document.write(response.data);
 						iframe.document.close();
 						iframe.document.print();
 					},
