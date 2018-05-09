@@ -210,16 +210,18 @@
                         servico: ctrl.servico,
                         prioridade: prioridade,
                         cliente: ctrl.cliente
+                    }
+                    hedr = {
+                        'Content-Type': 'application/x-www-form-urlencoded',
+                        'Authorization': 'Bearer ' + OAuth2.accessToken,
                     };
+                    alert(hedr.Authorization);
 
                 $http({
                     method: 'POST',
                     url: url,
                     data: JSON.stringify(data),
-                    headers: {
-                        'Content-Type': 'application/x-www-form-urlencoded',
-                        'Authorization': 'Bearer ' + OAuth2.accessToken,
-                    }
+                    headers: hedr
                 }).then(
                     function (response) {
                         if (response.data.error) {
