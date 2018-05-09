@@ -255,6 +255,7 @@
 		ctrl.load();
 		$(document).ready(function(){
 			ctrl.load();
+			Menu.fullscreen();
 		});
 	});
 
