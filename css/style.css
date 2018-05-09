@@ -236,14 +236,14 @@ html, body, #layout {
 
 
 #municipio{
-    font-size: 5rem;
+    font-size: 5rem !important;
 }
 #emissao{
-    font-size: 4rem;
+    font-size: 4rem !important;
 }
 #window_title, .btn{
-    font-size: 3rem;
+    font-size: 3rem !important;
 }
 .window_message{
-    font-size: 2.1rem;
+    font-size: 2.1rem !important;
 }
