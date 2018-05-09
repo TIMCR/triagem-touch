@@ -210,7 +210,7 @@
                         servico: ctrl.servico,
                         prioridade: prioridade,
                         cliente: ctrl.cliente
-                    }
+                    },
                     hedr = {
                         'Content-Type': 'application/x-www-form-urlencoded',
                         'Authorization': 'Bearer ' + OAuth2.accessToken,
