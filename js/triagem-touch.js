@@ -116,6 +116,7 @@
 			
 			var desabilitados = [];
 			for (var i = 0; i < ctrl.servicos.length; i++) {
+				alert(ctrl.servicos[i].hide);
 				if (ctrl.servicos[i].hide) {
 					desabilitados.push(ctrl.servicos[i].id);
 				}
