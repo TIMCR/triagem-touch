@@ -255,9 +255,11 @@
 		ctrl.load();
 		$(document).ready(function () {
 			ctrl.load();
+			$("#modalFullscreen").modal();
 		});
 		$("#buttonFullscreen").ready(function () {
 			Menu.fullscreen();
+			$("#modalFullscreen").modal();
 		});
 	});
 
