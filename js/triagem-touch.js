@@ -255,11 +255,11 @@
 		ctrl.load();
 		$(document).ready(function () {
 			ctrl.load();
-			$("#modalFullscreen").modal();
+			$("#modalFullscreen").modal("show");
 		});
-		$("#buttonFullscreen").on("click",function () {
+		$("#buttonFullscreen").on("click", function () {
+			$("#modalFullscreen").modal("hide");
 			Menu.fullscreen();
-			$("#modalFullscreen").modal();
 		});
 	});
 
