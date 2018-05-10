@@ -119,8 +119,8 @@
 				if (i < ctrl.servicos.length) {
 					if (ctrl.servicos[i].hide) {
 						alert(ctrl.servicos[i].hide);
-						desabilitados.push(ctrl.servicos[i].id);
-						alert(desabilitados[0]);
+						desabilitados[i] = ctrl.servicos[i].id;
+						alert(desabilitados[i]);
 					}
 				}else{
 					alert(JSON.stringify(desabilitados));
