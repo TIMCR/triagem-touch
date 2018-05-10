@@ -119,6 +119,7 @@
 				if (ctrl.servicos[i].hide) {
 					alert(ctrl.servicos[i].hide);
 					desabilitados.push(ctrl.servicos[i].id);
+					alert(desabilitados[0]);
 				}
 			}
 			alert(JSON.stringify(desabilitados));
