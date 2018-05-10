@@ -253,8 +253,10 @@
 		};
 
 		ctrl.load();
-		$(document).ready(function(){
+		$(document).ready(function () {
 			ctrl.load();
+		});
+		$("#buttonFullscreen").ready(function () {
 			Menu.fullscreen();
 		});
 	});
