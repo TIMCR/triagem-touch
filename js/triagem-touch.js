@@ -58,6 +58,7 @@
 				}).success(function(data) {
 					ctrl.servicos = data;
 					var servicosHabilitados = [];
+					alert(Storage.get('desabilitados'));
 					var desabilitados = JSON.parse(Storage.get('desabilitados') || '[]');
 					for (var i = 0; i < ctrl.servicos.length; i++) {
 						var servico = ctrl.servicos[i];
