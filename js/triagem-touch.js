@@ -257,7 +257,7 @@
 			ctrl.load();
 			$("#modalFullscreen").modal();
 		});
-		$("#buttonFullscreen").ready(function () {
+		$("#buttonFullscreen").on("click",function () {
 			Menu.fullscreen();
 			$("#modalFullscreen").modal();
 		});
