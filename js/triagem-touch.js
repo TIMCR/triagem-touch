@@ -64,7 +64,7 @@
 						var servico = ctrl.servicos[i];
 						servico.hide = false;
 						for (var j = 0; j < desabilitados.length; j++) {
-							if (servico.id === desabilitados[j]) {
+							if (servico.servico.id === desabilitados[j]) {
 								servico.hide = true;
 							}
 						}
