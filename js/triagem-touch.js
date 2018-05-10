@@ -115,24 +115,21 @@
 			Storage.set('interface.print', ctrl.interface.print ? '1' : '0');
 			
 			var desabilitados = [];
-			for (var i = 0; i <= ctrl.servicos.length; i++) {
-				if (i < ctrl.servicos.length) {
-					if (ctrl.servicos[i].hide) {
-						alert(ctrl.servicos[i].hide);
-						desabilitados[i] = ctrl.servicos[i].id;
-						alert(desabilitados[i]);
-					}
-				}else{
-					alert(JSON.stringify(desabilitados));
-					Storage.set('desabilitados', JSON.stringify(desabilitados));
-
-					ctrl.load();
-					$('#config').modal('hide');
-
-					blockedMenu = ctrl.interface.blocked;
-					unblockKey = ctrl.interface.unblockKey;
+			for (var i = 0; i < ctrl.servicos.length; i++) {
+				if (ctrl.servicos[i].hide) {
+					alert(ctrl.servicos[i].hide);
+					desabilitados.push(ctrl.servicos[i].id);
+					alert(ctrl.servicos[i].id);
 				}
 			}
+			alert(JSON.stringify(desabilitados));
+			Storage.set('desabilitados', JSON.stringify(desabilitados));
+			
+			ctrl.load();
+			$('#config').modal('hide');
+			
+			blockedMenu = ctrl.interface.blocked;
+			unblockKey = ctrl.interface.unblockKey;
 		};
 
 		ctrl.load = function() {
