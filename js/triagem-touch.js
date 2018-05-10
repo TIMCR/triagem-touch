@@ -58,7 +58,6 @@
 				}).success(function(data) {
 					ctrl.servicos = data;
 					var servicosHabilitados = [];
-					alert(Storage.get('desabilitados'));
 					var desabilitados = JSON.parse(Storage.get('desabilitados') || '[]');
 					for (var i = 0; i < ctrl.servicos.length; i++) {
 						var servico = ctrl.servicos[i];
@@ -117,12 +116,9 @@
 			var desabilitados = [];
 			for (var i = 0; i < ctrl.servicos.length; i++) {
 				if (ctrl.servicos[i].hide) {
-					alert(ctrl.servicos[i].servico.hide);
 					desabilitados.push(ctrl.servicos[i].servico.id);
-					alert(ctrl.servicos[i].servico.id);
 				}
 			}
-			alert(JSON.stringify(desabilitados));
 			Storage.set('desabilitados', JSON.stringify(desabilitados));
 			
 			ctrl.load();
