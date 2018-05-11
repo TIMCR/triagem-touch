@@ -53,6 +53,14 @@
             </div>
         </div>
     </div>
+    <div class="col-xs-6" ng-if="prioridade.peso > 0">
+        <div class="touch-control convencional">
+            <button class="btn btn-lg btn-default pull-right" ng-click="ctrl.inicio()">
+                <span class="icon glyphicon glyphicon-chevron-left"></span>
+                Voltar para serviços
+            </button>
+        </div>
+    </div>
 </div>
 <!-- 
     Aviso de senha sendo impressa
@@ -86,13 +94,6 @@
     </div>
     
     <div data-target="#tipo-atendimento" class="buttons">
-        <button class="btn btn-lg btn-default pull-right" ng-click="ctrl.inicio()">
-            <span class="icon glyphicon glyphicon-chevron-left"></span>
-            Voltar para serviços
-        </button>
-    </div>
-    
-    <div data-target="#prioridades" class="buttons">
         <button class="btn btn-lg btn-default pull-right" ng-click="ctrl.inicio()">
             <span class="icon glyphicon glyphicon-chevron-left"></span>
             Voltar para serviços
