@@ -163,7 +163,7 @@
 
 		ctrl.gotoPage = function(page, waitTime) {
 			// default is 15 seconds to go back to start page
-			waitTime = waitTime || 15;
+			waitTime = waitTime || 30;
 
 			$('#error').modal('hide');
 			$('.page, .page-buttons .buttons').hide();
