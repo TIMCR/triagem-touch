@@ -10,10 +10,18 @@
 <div id="servicos" class="page first">
     <div ng-class="ctrl.itemStyleClass($index, ctrl.paginator.items())" ng-repeat="servico in ctrl.paginator.items()" ng-hide="servico.hide">
         <div class="touch-control">
-            <button class="btn btn-success btn-lg btn-block" ng-click="ctrl.tipoAtendimento(servico.servico.id)">
-                <span class="icon glyphicon glyphicon-circle-arrow-right"></span>
-                {{servico.servico.nome}}
-            </button>
+            <div ng-if="servico.prioridade">
+                <button class="btn btn-success btn-lg btn-block" ng-click="ctrl.tipoAtendimento(servico.servico.id)">
+                    <span class="icon glyphicon glyphicon-circle-arrow-right"></span>
+                    {{servico.servico.nome}}
+                </button>
+            </div>
+            <div ng-if="!servico.prioridade">
+                <button class="btn btn-success btn-lg btn-block" ng-click="ctrl.distribuiNormalDireto(servico.servico.id)">
+                    <span class="icon glyphicon glyphicon-circle-arrow-right"></span>
+                    {{servico.servico.nome}}
+                </button>
+            </div>
         </div>
     </div>
 </div>

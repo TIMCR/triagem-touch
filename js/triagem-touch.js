@@ -198,7 +198,12 @@
 			ctrl.gotoPage('#prioridades');
 		};
 
-		ctrl.distribuiNormal = function() {
+		ctrl.distribuiNormal = function () {
+			ctrl.distribuiSenha(1);
+		};
+
+		ctrl.distribuiNormalDireto = function (servico) {
+			ctrl.servico = servico;
 			ctrl.distribuiSenha(1);
 		};
 
